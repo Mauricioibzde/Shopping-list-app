@@ -36,35 +36,57 @@ btn.addEventListener("click", (e) => {
         
     `;
 
-    newItem.classList.add("backgroundStandardList");
+
     list.appendChild(newItem);
 
 
         if (hoje.getTime() === userDate.getTime()) {
         console.log("Datas iguais");
-         newItem.style.borderInline =   " 4px solid #ff8000ff"
-           newItem.style.background =   " #ff80008d"
-         
+            newItem.classList.add("yellow-task");
+              
          const status = document.createElement("p")
          status.textContent = "vencendo"
          newItem.appendChild(status)
          
     } else if (hoje < userDate) {
         console.log("Ainda falta tempo");
-             newItem.style.borderInline =   " 4px solid #00fcc1ff"
-             newItem.style.background =   " #00fcc149"
+            
           const status = document.createElement("p")
          status.textContent = "Tranquilo"
          newItem.appendChild(status)
+        newItem.classList.add("green-task");
     } else {
         console.log("Tarefa vencida");
-              newItem.style.borderInline =   " 4px solid #fc0000ff"
-               newItem.style.background =   " rgba(253, 0, 0, 0.67)"
+             
            const status = document.createElement("p")
          status.textContent = "Venceu"
          newItem.appendChild(status)
+          newItem.classList.add("red-task");
     }
 
+let checkbox = newItem.querySelector("input.input-checkbox");
+
+
+
+checkbox.addEventListener("change",()=>{
+    console.log("click")
+
+      if (checkbox.checked) {
+      newItem.classList.add("checkbox-background")
+     } else {
+          newItem.classList.remove("checkbox-background")
+
+     }
+
+})
+
     console.log(Tarefa)
+
+ // adiciona/remove classe de acordo com o estado da checkbox
+ 
+
+  // muda cor de fundo apenas se estiver marcada
+
+
 
 });
