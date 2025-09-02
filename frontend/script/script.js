@@ -42,20 +42,24 @@ btn.addEventListener("click", (e) => {
 
         if (hoje.getTime() === userDate.getTime()) {
         console.log("Datas iguais");
-         newItem.style.background = "#fc6900ff"
+         newItem.style.borderInline =   " 4px solid #ff8000ff"
+           newItem.style.background =   " #ff80008d"
+         
          const status = document.createElement("p")
-         status.textContent = "Quase vencendo"
+         status.textContent = "vencendo"
          newItem.appendChild(status)
          
     } else if (hoje < userDate) {
         console.log("Ainda falta tempo");
-        newItem.style.background = "#1dfc00ff"
+             newItem.style.borderInline =   " 4px solid #00fcc1ff"
+             newItem.style.background =   " #00fcc149"
           const status = document.createElement("p")
          status.textContent = "Tranquilo"
          newItem.appendChild(status)
     } else {
         console.log("Tarefa vencida");
-         newItem.style.background = "#fc0000ff"
+              newItem.style.borderInline =   " 4px solid #fc0000ff"
+               newItem.style.background =   " rgba(253, 0, 0, 0.67)"
            const status = document.createElement("p")
          status.textContent = "Venceu"
          newItem.appendChild(status)
