@@ -1,58 +1,66 @@
-const form = document.querySelector('form');
+const btn = document.querySelector("button#btn-add");
 
-form.addEventListener('submit', (e) => {
+btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const inputText = document.querySelector('#input-text').value.trim();
+    const inputText = document.querySelector('#input-text').value;
+    const datauser = document.querySelector("input#dataDoUser").value;
 
-    if (inputText === "") {
-        alert('Por favor adicione uma tarefa');
-        return;
-    }
+    // Cria objeto Tarefa
+    const Tarefa = {
+        id: Math.floor(Math.random() * 10000000),
+        task: inputText,
+        dataAtual: new Date(),
+        dataUser: new Date(datauser)
+    };
 
+    // Comparação de datas
+    let hoje = new Date(Tarefa.dataAtual);
+    hoje.setHours(0,0,0,0);
+
+    let userDate = new Date(Tarefa.dataUser);
+    userDate.setHours(0,0,0,0);
+
+
+    // Adiciona na lista
     const list = document.querySelector('#list');
     const newItem = document.createElement('li');
 
     newItem.innerHTML = `
-       
-            <input type="checkbox" class="input-checkbox">
-            <p>${inputText}</p>
-         <button class="btn-delete">
-                <img src="./frontend/icons/delete-icon.svg" alt="Deletar">
-            </button>
-      
+        <input type="checkbox" class="input-checkbox">
+        <p>${Tarefa.task}</p>
+        <p>${Tarefa.dataUser.toLocaleDateString()}</p>
+        <button class="btn-delete">
+            <img src="./frontend/icons/delete-icon.svg" alt="Deletar">
+        </button>
+        
     `;
 
-    newItem.classList.add("backgroundStandardList")
-
+    newItem.classList.add("backgroundStandardList");
     list.appendChild(newItem);
 
-    // ✔️ Seleciona os elementos de dentro do newItem
-    const btnDelete = newItem.querySelector('.btn-delete');
-    const checkbox = newItem.querySelector('.input-checkbox');
 
- btnDelete.addEventListener('click', () => {
-    const confirmacao = confirm("Tem certeza que quer apagar esse item da lista?");
-    
-    if (confirmacao) {
-        newItem.remove();
-    }
-});
-
-  checkbox.addEventListener('click', () => {
-    if (checkbox.checked) {
-        newItem.classList.remove("backgroundStandardList");
-        newItem.classList.add("completed");
+        if (hoje.getTime() === userDate.getTime()) {
+        console.log("Datas iguais");
+         newItem.style.background = "#fc6900ff"
+         const status = document.createElement("p")
+         status.textContent = "Quase vencendo"
+         newItem.appendChild(status)
+         
+    } else if (hoje < userDate) {
+        console.log("Ainda falta tempo");
+        newItem.style.background = "#1dfc00ff"
+          const status = document.createElement("p")
+         status.textContent = "Tranquilo"
+         newItem.appendChild(status)
     } else {
-        newItem.classList.remove("completed");
-        newItem.classList.add("backgroundStandardList");
+        console.log("Tarefa vencida");
+         newItem.style.background = "#fc0000ff"
+           const status = document.createElement("p")
+         status.textContent = "Venceu"
+         newItem.appendChild(status)
     }
 
-    console.log('chequei');
+    console.log(Tarefa)
+
 });
-
-
-    form.reset(); // limpa o campo de texto
-});
-
-

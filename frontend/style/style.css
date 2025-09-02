@@ -89,16 +89,24 @@ main {
     gap: 0.5rem;
     margin-top: 2rem;
 
-    & input {
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
-        border: 1px solid var(--border-primary);
-        border-radius: 0.5rem;
-        width: 100%;
-        max-width: 400px;
+ & input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-primary);
+    border-radius: 0.5rem;
+    
+    max-width: 400px;
+
+    &:focus {
+        outline: none; 
+        box-shadow: 0 0 0 2px var(--color-brand); /* efeito visual opcional */
+       
     }
+}
+
 
     & button {
+        width: min-content;
         padding: 0.75rem 1.5rem;
         background-color: var(--color-brand);
         color: var(--always-white);
@@ -122,11 +130,12 @@ main {
         width: 100%;
         display: grid;
         grid-auto-flow: column;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: 0.5fr 2fr 0.5fr 0.4fr 1fr;
         align-items: center;
         gap: 1rem;
         padding: 0.75rem 1.5rem;
         margin-top: 1rem;
+        
        
         border-radius: 0.5rem;
 
