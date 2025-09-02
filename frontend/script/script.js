@@ -3,106 +3,104 @@ const btn = document.querySelector("button#btn-add");
 btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const inputText = document.querySelector('#input-text').value;
+    const inputText = document.querySelector('#input-text').value.trim();
     const datauser = document.querySelector("input#dataDoUser").value;
+    const descriptionUser = document.getElementById("DescriptionId").value.trim();
+
+    // ===== Validação =====
+    if (!inputText) { alert("Digite o nome do produto!"); return; }
+    if (!datauser) { alert("Escolha uma data!"); return; }
+
+    const userDate = new Date(datauser);
+    if (isNaN(userDate.getTime())) { alert("Data inválida!"); return; }
+
+    // ===== Comparação de datas =====
+    let hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    userDate.setHours(0, 0, 0, 0);
+
+    // ===== Criar novo item =====
+    const list = document.querySelector('#list');
+    const newItem = document.createElement('li');
+
+    // Cria a descrição
+    const descriptionItem = document.createElement('p');
+    descriptionItem.textContent = descriptionUser;
+    descriptionItem.classList.add("description-of-task");
+    descriptionItem.style.display = "none";
 
     // Cria objeto Tarefa
     const Tarefa = {
         id: Math.floor(Math.random() * 10000000),
         task: inputText,
         dataAtual: new Date(),
-        dataUser: new Date(datauser)
+        dataUser: userDate,
+        description: descriptionUser
     };
 
-    // Comparação de datas
-    let hoje = new Date(Tarefa.dataAtual);
-    hoje.setHours(0,0,0,0);
-
-    let userDate = new Date(Tarefa.dataUser);
-    userDate.setHours(0,0,0,0);
-
-
-    // Adiciona na lista
-    const list = document.querySelector('#list');
-    const newItem = document.createElement('li');
-
+    // Adiciona conteúdo HTML do item
     newItem.innerHTML = `
-        <input type="checkbox" class="input-checkbox">
+        <label class="container">
+            <input class="input-checkbox" type="checkbox">
+            <div class="checkmark"></div>
+        </label>
         <p>${Tarefa.task}</p>
         <p>${Tarefa.dataUser.toLocaleDateString()}</p>
-       <button class="btn-delete">
+        <button class="btn-delete">
             <img src="./frontend/icons/delete-icon.svg" alt="Deletar">
         </button>
-        
+        <button class="btn-salvar-descricao"><img src="./frontend/icons/questions_hires.png" alt=""></button>
     `;
 
+    // ===== Status da tarefa como imagem =====
+    const status = document.createElement("img");
+    status.alt = "Status da tarefa";
+    status.width = 40;
+    status.height = 40;
 
+    // Define imagem original de acordo com a data
+    let originalStatusSrc = "";
+    if (hoje.getTime() === userDate.getTime()) {
+        newItem.classList.add("yellow-task");
+        originalStatusSrc = "../frontend/icons/Asset 10@2000x.png";
+    } else if (hoje < userDate) {
+        newItem.classList.add("green-task");
+       originalStatusSrc = "./frontend/icons/Asset 9@2000x.png";
+    } else {
+        newItem.classList.add("red-task");
+        originalStatusSrc = "./frontend/icons/Asset 2@2000x.png";
+    }
+    status.src = originalStatusSrc;
+
+    newItem.appendChild(status);
+    newItem.appendChild(descriptionItem);
     list.appendChild(newItem);
 
+    // ===== Checkbox =====
+    const checkbox = newItem.querySelector("input.input-checkbox");
+    checkbox.addEventListener("change", () => {
+        newItem.classList.toggle("checkbox-background", checkbox.checked);
 
-        if (hoje.getTime() === userDate.getTime()) {
-        console.log("Datas iguais");
-            newItem.classList.add("yellow-task");
-              
-         const status = document.createElement("p")
-         status.textContent = "vencendo"
-         newItem.appendChild(status)
-         
-    } else if (hoje < userDate) {
-        console.log("Ainda falta tempo");
-            
-          const status = document.createElement("p")
-         status.textContent = "Tranquilo"
-         newItem.appendChild(status)
-        newItem.classList.add("green-task");
-    } else {
-        console.log("Tarefa vencida");
-             
-           const status = document.createElement("p")
-         status.textContent = "Venceu"
-         newItem.appendChild(status)
-          newItem.classList.add("red-task");
-    }
+        // Alterna imagem do status usando ternário
+        status.src = checkbox.checked
+            ? "./frontend/icons/Asset 4@2000x.png"  // imagem de concluído
+            : originalStatusSrc;                     // volta à imagem original
+    });
 
-let checkbox = newItem.querySelector("input.input-checkbox");
-
-
-
-checkbox.addEventListener("change",()=>{
-    console.log("click")
-
-      if (checkbox.checked) {
-      newItem.classList.add("checkbox-background")
-     } else {
-          newItem.classList.remove("checkbox-background")
-
-     }
-
-})
-
-    console.log(Tarefa)
-
-     const btnDelete  = newItem.querySelector(".btn-delete");
-      btnDelete.addEventListener("click", (e) => {
+    // ===== Botão deletar =====
+    const btnDelete = newItem.querySelector(".btn-delete");
+    btnDelete.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log("clicou deletar");
-        newItem.remove()
-        
-      });
+        if (confirm("Tem certeza que deseja apagar esta tarefa?")) {
+            newItem.remove();
+        }
+    });
 
+    // ===== Botão descrição =====
+    const btnDescription = newItem.querySelector(".btn-salvar-descricao");
+    btnDescription.addEventListener("click", (e) => {
+        e.preventDefault();
+        descriptionItem.style.display = descriptionItem.style.display === "none" ? "block" : "none";
+    });
 
-
-
-
- // adiciona/remove classe de acordo com o estado da checkbox
- 
-
-  // muda cor de fundo apenas se estiver marcada
-
-
-
+    console.log(Tarefa);
 });
-
-
-
-

@@ -225,4 +225,152 @@ main {
 
 
 
+.description-of-task {
+    padding: 1rem;
+    background-color: rgb(146, 146, 146);
+    border-radius: 1rem;
+    
+}
+
+textarea {
+    width: 100%;
+     height: 3rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid transparent; /* borda transparente */
+    background: linear-gradient(white, white) padding-box, 
+                linear-gradient(90deg, #000000, #ff000d) border-box;
+}
+
+
+
+
+
+
+li {
+    cursor: pointer;
+}
+
+.textarea {
+    display: none;
+}
+
+
+#list {
+    display: grid;
+    gap: .2rem;
+}
+
+
+/**/
+
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.2rem; /* opcional, diminui o texto */
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  --clr: #4500e5;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1rem;   /* tamanho menor */
+  width: 1rem;    /* tamanho menor */
+  background-color: rgba(0, 0, 0, 0.616);
+  border: 1px solid white;
+  border-radius: 50%;
+  transition: 300ms;
+
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: var(--clr);
+  border-radius: .5rem;
+  animation: pulse 500ms ease-in-out;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.25em;  /* ajustado para o tamanho menor */
+  top: 0.1em;    /* ajustado */
+  width: 0.15em; /* ajustado */
+  height: .5em; /* ajustado */
+  border: solid #E0E0E2;
+  border-width: 0 0.1em 0.1em 0;
+  transform: rotate(45deg);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 #0B6E4F90;
+    rotate: 20deg;
+  }
+
+  50% {
+    rotate: -20deg;
+  }
+
+  75% {
+    box-shadow: 0 0 0 6px #0B6E4F60; /* proporcional ao tamanho */
+  }
+
+  100% {
+    box-shadow: 0 0 0 8px #0B6E4F30; /* proporcional ao tamanho */
+    rotate: 0;
+  }
+}
+
+.description {
+    padding-block: 1rem;
+}
+
+.Description {
+    background-color: #006f2d;
+    height: 3rem;
+    padding: 1rem .5rem;
+    border-radius: 1rem;
+}
+
+.btn-salvar-descricao {
+
+    background-color: transparent;
+    border: none;
+    width: 2rem;
+    height: auto;
+   & img {
+     width: 100%;
+   height: 100%;
+   }
+}
+
+
+/**/
+
+
 
