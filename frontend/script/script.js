@@ -30,7 +30,7 @@ btn.addEventListener("click", (e) => {
         <input type="checkbox" class="input-checkbox">
         <p>${Tarefa.task}</p>
         <p>${Tarefa.dataUser.toLocaleDateString()}</p>
-        <button class="btn-delete">
+       <button class="btn-delete">
             <img src="./frontend/icons/delete-icon.svg" alt="Deletar">
         </button>
         
@@ -82,6 +82,18 @@ checkbox.addEventListener("change",()=>{
 
     console.log(Tarefa)
 
+     const btnDelete  = newItem.querySelector(".btn-delete");
+      btnDelete.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("clicou deletar");
+        newItem.remove()
+        
+      });
+
+
+
+
+
  // adiciona/remove classe de acordo com o estado da checkbox
  
 
@@ -90,3 +102,7 @@ checkbox.addEventListener("change",()=>{
 
 
 });
+
+
+
+
