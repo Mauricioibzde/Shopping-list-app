@@ -58,6 +58,12 @@
     /* Medium */
 }
 
+.title-of-the-aplication {
+     text-align: center;
+     padding-block: 1rem;
+
+}
+
 h1 {
     font-family: var(--font-family);
     color: var(--content-primary);
@@ -203,7 +209,8 @@ main {
 }
 
 .title-of-the-aplication {
-    text-align: center;
+     text-align: center;
+
 }
 
 
@@ -272,8 +279,7 @@ li {
 
 
 #list {
-    display: grid;
-    gap: .2rem;
+  
 }
 
 
@@ -402,4 +408,36 @@ li {
 /**/
 
 
+/**/
+
+
+
+.tarefas-container  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+     justify-content: center;
+    gap:2rem ;
+   
+
+   
+   
+    & button {
+       
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-brand);
+        color: var(--always-white);
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-family: var(--font-family);
+        font-weight: var(--font-label-weight);
+        height: 3rem;
+    }
+ 
+}
+/**/
+
+.display-none {
+    display: none;
+}
 

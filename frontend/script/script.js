@@ -1,5 +1,6 @@
 const btn = document.querySelector("button#btn-add");
 
+
 btn.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -21,7 +22,6 @@ btn.addEventListener("click", (e) => {
     userDate.setHours(0, 0, 0, 0);
 
     // ===== Criar novo item =====
-    const list = document.querySelector('#list');
     const newItem = document.createElement('li');
 
    
@@ -61,6 +61,8 @@ btn.addEventListener("click", (e) => {
     descriptionItem.textContent = descriptionUser || "Sem descrição adicionada.";
     descriptionItem.classList.add("description-of-task");
     descriptionItem.style.display = "none";
+    
+
 
     // ===== Status da tarefa como imagem =====
     const status = document.createElement("img");
@@ -116,5 +118,15 @@ status.src = originalStatusSrc;
 
     console.log(Tarefa);
 });
+
+
+//Adicionando botao ver tarefas que esconde o form
+let btnVerTarefas = document.querySelector("button#btn-ver-tarefas")
+btnVerTarefas.addEventListener("click",(e)=>{
+    const list = document.querySelector('#list');
+list.classList.toggle("display-none")
+e.preventDefault()
+
+})
 
 
