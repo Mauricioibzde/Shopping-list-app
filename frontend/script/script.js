@@ -7,6 +7,8 @@ btn.addEventListener("click", (e) => {
     const datauser = document.querySelector("input#dataDoUser").value;
     const descriptionUser = document.getElementById("DescriptionId").value.trim();
 
+ 
+
     // ===== Validação =====
     if (!inputText) { alert("Digite o nome do produto!"); return; }
     if (!datauser) { alert("Escolha uma data!"); return; }
@@ -33,6 +35,13 @@ btn.addEventListener("click", (e) => {
         description: descriptionUser
     };
 
+   
+
+    if(descriptionUser) {
+       
+        
+    }
+
     // Adiciona conteúdo HTML do item
     newItem.innerHTML = `
         <label class="container">
@@ -49,7 +58,7 @@ btn.addEventListener("click", (e) => {
 
      // Cria a descrição
     const descriptionItem = document.createElement('p');
-    descriptionItem.textContent = descriptionUser;
+    descriptionItem.textContent = descriptionUser || "Sem descrição adicionada.";
     descriptionItem.classList.add("description-of-task");
     descriptionItem.style.display = "none";
 
@@ -107,3 +116,5 @@ status.src = originalStatusSrc;
 
     console.log(Tarefa);
 });
+
+
