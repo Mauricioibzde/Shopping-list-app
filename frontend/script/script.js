@@ -22,11 +22,7 @@ btn.addEventListener("click", (e) => {
     const list = document.querySelector('#list');
     const newItem = document.createElement('li');
 
-    // Cria a descrição
-    const descriptionItem = document.createElement('p');
-    descriptionItem.textContent = descriptionUser;
-    descriptionItem.classList.add("description-of-task");
-    descriptionItem.style.display = "none";
+   
 
     // Cria objeto Tarefa
     const Tarefa = {
@@ -51,8 +47,15 @@ btn.addEventListener("click", (e) => {
         <button class="btn-salvar-descricao"><img src="./frontend/icons/questions_hires.png" alt=""></button>
     `;
 
+     // Cria a descrição
+    const descriptionItem = document.createElement('p');
+    descriptionItem.textContent = descriptionUser;
+    descriptionItem.classList.add("description-of-task");
+    descriptionItem.style.display = "none";
+
     // ===== Status da tarefa como imagem =====
     const status = document.createElement("img");
+    status.classList.add("status-img")
     status.alt = "Status da tarefa";
     status.width = 40;
     status.height = 40;
@@ -72,8 +75,9 @@ btn.addEventListener("click", (e) => {
     status.src = originalStatusSrc;
 
     newItem.appendChild(status);
-    newItem.appendChild(descriptionItem);
-    list.appendChild(newItem);
+    let descricaoListada = document.querySelector("div.descriptionUser")
+     list.appendChild(newItem);
+      list.appendChild(descriptionItem);
 
     // ===== Checkbox =====
     const checkbox = newItem.querySelector("input.input-checkbox");
@@ -92,6 +96,7 @@ btn.addEventListener("click", (e) => {
         e.preventDefault();
         if (confirm("Tem certeza que deseja apagar esta tarefa?")) {
             newItem.remove();
+            descriptionItem.remove();
         }
     });
 
