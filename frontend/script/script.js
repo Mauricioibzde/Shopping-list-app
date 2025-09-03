@@ -63,17 +63,17 @@ btn.addEventListener("click", (e) => {
     let originalStatusSrc = "";
 if (hoje.getTime() === userDate.getTime()) {
     newItem.classList.add("yellow-task");
-    originalStatusSrc = "./frontend/icons/Asset 10@2000x.png";
+    originalStatusSrc = "./frontend/icons/Asset 4@2000x.png";
 } else if (hoje < userDate) {
     newItem.classList.add("green-task");
-    originalStatusSrc = "./frontend/icons/Asset 9@2000x.png";
+    originalStatusSrc = "./frontend/icons/Asset 4@2000x.png";
 } else {
     newItem.classList.add("red-task");
-    originalStatusSrc = "./frontend/icons/Asset 2@2000x.png";
+    originalStatusSrc = "./frontend/icons/Asset 4@2000x.png";
 }
 status.src = originalStatusSrc;
 
-    newItem.appendChild(status);
+     newItem.appendChild(status);
      list.appendChild(newItem);
       list.appendChild(descriptionItem);
 
