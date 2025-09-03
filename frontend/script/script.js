@@ -55,27 +55,25 @@ btn.addEventListener("click", (e) => {
 
     // ===== Status da tarefa como imagem =====
     const status = document.createElement("img");
-    status.classList.add("status-img")
+    status.classList.add("status-img");
     status.alt = "Status da tarefa";
     status.width = 40;
     status.height = 40;
-
     // Define imagem original de acordo com a data
     let originalStatusSrc = "";
-    if (hoje.getTime() === userDate.getTime()) {
-        newItem.classList.add("yellow-task");
-        originalStatusSrc = "../frontend/icons/Asset 10@2000x.png";
-    } else if (hoje < userDate) {
-        newItem.classList.add("green-task");
-       originalStatusSrc = "./frontend/icons/Asset 9@2000x.png";
-    } else {
-        newItem.classList.add("red-task");
-        originalStatusSrc = "./frontend/icons/Asset 2@2000x.png";
-    }
-    status.src = originalStatusSrc;
+if (hoje.getTime() === userDate.getTime()) {
+    newItem.classList.add("yellow-task");
+    originalStatusSrc = "./frontend/icons/Asset 10@2000x.png";
+} else if (hoje < userDate) {
+    newItem.classList.add("green-task");
+    originalStatusSrc = "./frontend/icons/Asset 9@2000x.png";
+} else {
+    newItem.classList.add("red-task");
+    originalStatusSrc = "./frontend/icons/Asset 2@2000x.png";
+}
+status.src = originalStatusSrc;
 
     newItem.appendChild(status);
-    let descricaoListada = document.querySelector("div.descriptionUser")
      list.appendChild(newItem);
       list.appendChild(descriptionItem);
 
