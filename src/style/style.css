@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+:root {
+    /* === Background Colors === */
+    --background-primary: #F4F5FB;
+    --background-secondary: #FFFFFF;
+
+    /* === Brand & Status Colors === */
+    --color-brand: #CA3884;
+    --color-brand-hover: #A52C6B;
+    --color-danger: #C93847;
+
+    /* === Content Colors === */
+    --content-primary: #080B12;
+    --content-secondary: #374151;
+    --content-tertiary: #9CA3AF;
+    --always-white: #FFFFFF;
+
+    /* === Border Colors === */
+    --border-primary: #D1D5DB;
+    --border-hover: #B9C2D0;
+
+    --font-family: "Inter", sans-serif;
+    --font-title-size: 1.5rem;
+    /* 24px */
+    --font-title-line-height: 2rem;
+    /* 32px */
+    --font-title-weight: 700;
+    /* Bold */
+
+    --font-label-size: 1rem;
+    /* 16px */
+    --font-label-line-height: 1.25rem;
+    /* 20px */
+    --font-label-weight: 600;
+    /* Semibold */
+
+    --font-paragraph-size: 1rem;
+    /* 16px */
+    --font-paragraph-line-height: 1.25rem;
+    /* 20px */
+    --font-paragraph-weight: 500;
+    /* Medium */
+
+    --font-link-size: 0.875rem;
+    /* 14px */
+    --font-link-line-height: 1rem;
+    /* 16px */
+    --font-link-weight: 500;
+    /* Medium */
+}
+
+.title-of-the-aplication {
+     text-align: center;
+     padding-block: 1rem;
+
+}
+
+h1 {
+    font-family: var(--font-family);
+    color: var(--content-primary);
+}
+
+main {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-inline: 2rem;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.btn-back {
+    background-color: transparent;
+    border: none;
+    font-family: var(--font-family);
+    padding-block: 1rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    cursor: pointer;
+}
+
+.menu-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+
+ & input {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-primary);
+    border-radius: 0.5rem;
+    width: 100%;
+    
+  
+
+    &:focus {
+        outline: none; 
+        box-shadow: 0 0 0 2px var(--color-brand); /* efeito visual opcional */
+       
+    }
+}
+
+
+    & button {
+        width: min-content;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-brand);
+        color: var(--always-white);
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-family: var(--font-family);
+        font-weight: var(--font-label-weight);
+        height: 3rem;
+    }
+      & button:hover {
+    
+        background-color: var(--color-danger);
+    }
+}
+
+#list {
+    
+
+    max-height: 400px;
+    overflow: auto;
+    & li {
+        width: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 0.5fr 2fr 0.5fr 0.4fr 1fr;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.75rem 1.5rem;
+        margin-top: 1rem;
+        
+        
+       
+        border-radius: 0.5rem;
+
+        & p {
+            font-family: var(--font-family);
+            font-weight: 600;
+        }
+
+        & .btn-delete {
+            justify-self: end;
+          background-color: transparent;
+            border: none;
+            cursor: pointer;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: .2rem;
+            & img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+
+    }
+}
+
+.completed {
+    background-color: var(--color-brand);
+    text-decoration: line-through;
+}
+
+.backgroundStandardList {
+     background-color: var(--background-primary);
+}
+
+
+@media (max-width: 400px) {
+    main {
+        padding-inline: 1.5rem;
+    }
+
+    #btn-add {
+       padding: 0.3rem ;
+    }
+}
+
+@media (max-width: 640px) {
+.menu-app {
+    flex-wrap: wrap;
+}
+
+.menu-app {
+   &  button , input {
+        width: 100%;
+       
+    }
+}
+
+.title-of-the-aplication {
+     text-align: center;
+
+}
+
+
+
+.btn-voltar {
+    display: none;
+}
+
+}
+.green-task {
+    background-color: #006f2cbd;
+}
+
+.yellow-task {
+    background-color: #ffb300b9;
+}
+
+.red-task {
+    background-color: #cd0c0292;
+}
+
+
+.checkbox-background {
+    background-color: #3f3f3fab;
+}
+
+
+
+.description-of-task {
+    padding: 1rem;
+    color: #000000;
+    border: 1px solid black;
+    text-align: center;
+  
+   
+    
+}
+
+textarea {
+    width: 100%;
+     height: 3rem;
+     min-width: 100%;
+     max-width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid transparent; /* borda transparente */
+    background: linear-gradient(white, white) padding-box, 
+                linear-gradient(90deg, #000000, #ff000d) border-box;
+                
+
+                
+}
+
+
+
+
+
+
+li {
+    cursor: pointer;
+}
+
+.textarea {
+    display: none;
+}
+
+
+#list {
+  
+}
+
+
+/**/
+
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.2rem; /* opcional, diminui o texto */
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  --clr: #4500e5;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1rem;   /* tamanho menor */
+  width: 1rem;    /* tamanho menor */
+  background-color: rgba(0, 0, 0, 0.616);
+  border: 1px solid white;
+  border-radius: 50%;
+  transition: 300ms;
+
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: var(--clr);
+  border-radius: .5rem;
+  animation: pulse 500ms ease-in-out;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.25em;  /* ajustado para o tamanho menor */
+  top: 0.1em;    /* ajustado */
+  width: 0.15em; /* ajustado */
+  height: .5em; /* ajustado */
+  border: solid #E0E0E2;
+  border-width: 0 0.1em 0.1em 0;
+  transform: rotate(45deg);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 #0B6E4F90;
+    rotate: 20deg;
+  }
+
+  50% {
+    rotate: -20deg;
+  }
+
+  75% {
+    box-shadow: 0 0 0 6px #0B6E4F60; /* proporcional ao tamanho */
+  }
+
+  100% {
+    box-shadow: 0 0 0 8px #0B6E4F30; /* proporcional ao tamanho */
+    rotate: 0;
+  }
+}
+
+.description {
+    padding-block: 1rem;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.Description {
+    background-color: #006f2d;
+    height: 3rem;
+    padding: 1rem .5rem;
+    border-radius: 1rem;
+}
+
+.btn-salvar-descricao {
+
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    border: none;
+  
+    height: auto;
+    cursor: pointer;
+   & img {
+     width: 1.5rem;
+     height: 1.8rem;
+   
+   }
+
+   
+}
+
+.status-img {
+    width: 1.8rem;
+     height: 1.8rem;
+}
+
+
+/**/
+
+
+/**/
+
+
+
+.tarefas-container  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+     justify-content: center;
+    gap:2rem ;
+   
+
+   
+   
+    & button {
+       
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-brand);
+        color: var(--always-white);
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-family: var(--font-family);
+        font-weight: var(--font-label-weight);
+        height: 3rem;
+    }
+ 
+}
+/**/
+
+.display-none {
+    display: none;
+}
+
