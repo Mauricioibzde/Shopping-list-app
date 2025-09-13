@@ -76,7 +76,7 @@ input , button, textarea {
 
 
 input:not(:placeholder-shown) {
-    color: var(--content-tertiary);
+    color: #6d6d6e;
 }
 
 .title-of-the-aplication {
@@ -183,6 +183,10 @@ main {
         gap: 1rem;
         padding: 0.75rem 1.5rem;
         margin-top: 1rem;
+
+        & li.active {
+            display: block;
+        }
         
         
        
@@ -300,6 +304,8 @@ textarea {
   color: var(--content-tertiary);
   background-color: var(--background-secondary);
   border-radius: 1rem;
+  font-family: var(--font-family);
+        
 }
         
 
@@ -321,8 +327,18 @@ li {
 
 
 #list {
-  
+  display: none;
 }
+
+#list.active {
+    display: block;
+}
+
+#list.active {
+    display: block;
+}
+  
+
 
 
 /**/
@@ -461,7 +477,7 @@ li {
    
     & button {
        
-        padding: 0.75rem 1.5rem;
+      
         background-color: var(--color-brand);
         color: var(--always-white);
         border: none;
@@ -473,9 +489,3 @@ li {
     }
  
 }
-/**/
-
-.display-none {
-    display: none;
-}
-

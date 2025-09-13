@@ -9,7 +9,7 @@ btn.addEventListener("click", (e) => {
     const descriptionUser = document.getElementById("DescriptionId").value.trim();
     const taskMenssagem = document.getElementById("task-menssagem");
 
-   taskMenssagem.innerText = "Tarefa adicionada com sucesso adionar outra tarefa!";
+   taskMenssagem.innerText = "Task added successfully! Add another task!";
     
      
     // ===== Validação =====
@@ -60,7 +60,7 @@ btn.addEventListener("click", (e) => {
 
      // Cria a descrição
     const descriptionItem = document.createElement('p');
-    descriptionItem.textContent = descriptionUser || "Sem descrição adicionada.";
+    descriptionItem.textContent = descriptionUser || "No description added..";
     descriptionItem.classList.add("description-of-task");
     
 
@@ -127,16 +127,29 @@ status.src = originalStatusSrc;
     });
 
     console.log(Tarefa);
+
+   
+
+
+
+
 });
 
+let btnVerTarefasConcluidas = document.getElementById("btn-ver-tarefas")
+btnVerTarefasConcluidas.addEventListener("click", (e)=>{
+    e.preventDefault();
+    let listaDeTarefas = document.getElementById("list");
+    listaDeTarefas.classList.toggle("active");
 
-//Adicionando botao ver tarefas que esconde o form
-let btnVerTarefas = document.querySelector("button#btn-ver-tarefas")
-btnVerTarefas.addEventListener("click",(e)=>{
-    const list = document.querySelector('#list');
-list.classList.toggle("display-none")
-e.preventDefault()
 
+});
+
+let btnVerTarefas = document.getElementById("btn-ver-excluidas")
+btnVerTarefas.addEventListener("click", (e)=>{
+    e.preventDefault();
 })
+
+
+
 
 
