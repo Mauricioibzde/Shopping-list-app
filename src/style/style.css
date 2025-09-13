@@ -4,24 +4,34 @@
     box-sizing: border-box;
 }
 
+body {
+   background-color: var(--background-primary);
+}
 
+  
+
+    p {
+            font-family: var(--font-family);
+            font-weight: 600;
+           
+        }
 
 
 
 :root {
     /* === Background Colors === */
-    --background-primary: #F4F5FB;
-    --background-secondary: #FFFFFF;
+    --background-primary: #ffffff;
+    --background-secondary: #c5c5c5;
 
     /* === Brand & Status Colors === */
-    --color-brand: #CA3884;
+    --color-brand: #1F7D53;
     --color-brand-hover: #A52C6B;
     --color-danger: #C93847;
 
     /* === Content Colors === */
     --content-primary: #080B12;
     --content-secondary: #374151;
-    --content-tertiary: #9CA3AF;
+    --content-tertiary: #27391C;
     --always-white: #FFFFFF;
 
     /* === Border Colors === */
@@ -58,9 +68,26 @@
     /* Medium */
 }
 
+input , button, textarea {
+     background-color: var(--background-secondary);
+       color: var(--content-tertiary);
+} 
+
+
+
+input:not(:placeholder-shown) {
+    color: var(--content-tertiary);
+}
+
 .title-of-the-aplication {
      text-align: center;
      padding-block: 1rem;
+
+}
+
+.hero-form {
+    display: grid;
+    gap: 2rem;
 
 }
 
@@ -98,7 +125,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 2rem;
+  
 
  & input {
     padding: 0.75rem 1.5rem;
@@ -106,6 +133,7 @@ main {
     border: 1px solid var(--border-primary);
     border-radius: 0.5rem;
     width: 100%;
+   
     
   
 
@@ -135,6 +163,11 @@ main {
     }
 }
 
+.adding-or-not {
+    text-align: center;
+     color: var(--color-brand);
+}
+
 #list {
     
 
@@ -153,12 +186,9 @@ main {
         
         
        
-        border-radius: 0.5rem;
+     
 
-        & p {
-            font-family: var(--font-family);
-            font-weight: 600;
-        }
+     
 
         & .btn-delete {
             justify-self: end;
@@ -225,7 +255,7 @@ main {
 
 }
 .green-task {
-    background-color: #006f2cbd;
+    background-color: #1F7D53;
 }
 
 .yellow-task {
@@ -233,7 +263,7 @@ main {
 }
 
 .red-task {
-    background-color: #cd0c0292;
+    background-color: #a52c6bc4;
 }
 
 
@@ -246,27 +276,35 @@ main {
 .description-of-task {
     padding: 1rem;
     color: #000000;
-    border: 1px solid black;
+     display: none;
     text-align: center;
   
    
     
 }
 
+.description-of-task.active {
+    display: block;
+}
+
 textarea {
-    width: 100%;
-     height: 3rem;
-     min-width: 100%;
-     max-width: 100%;
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: 2px solid transparent; /* borda transparente */
-    background: linear-gradient(white, white) padding-box, 
-                linear-gradient(90deg, #000000, #ff000d) border-box;
-                
+    
+       
+  all: unset;
+  display: block;
+  width: 100%;
+  height: auto;
+  resize: none;
+  box-sizing: border-box;
+  padding: 1rem;
+  color: var(--content-tertiary);
+  background-color: var(--background-secondary);
+  border-radius: 1rem;
+}
+        
 
                 
-}
+
 
 
 
@@ -308,7 +346,7 @@ li {
 
 /* Create a custom checkbox */
 .checkmark {
-  --clr: #4500e5;
+  --clr: #1F7D53;
   position: relative;
   top: 0;
   left: 0;
@@ -372,16 +410,12 @@ li {
 }
 
 .description {
-    padding-block: 1rem;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  
+     box-shadow: 0 0 10PX 0px #0B6E4F30;
+     border-radius: 1rem;
 }
 
-.Description {
-    background-color: #006f2d;
-    height: 3rem;
-    padding: 1rem .5rem;
-    border-radius: 1rem;
-}
+
 
 .btn-salvar-descricao {
 

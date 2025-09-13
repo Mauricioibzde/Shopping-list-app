@@ -7,9 +7,11 @@ btn.addEventListener("click", (e) => {
     const inputText = document.querySelector('#input-text').value.trim();
     const datauser = document.querySelector("input#dataDoUser").value;
     const descriptionUser = document.getElementById("DescriptionId").value.trim();
+    const taskMenssagem = document.getElementById("task-menssagem");
 
- 
-
+   taskMenssagem.innerText = "Tarefa adicionada com sucesso adionar outra tarefa!";
+    
+     
     // ===== Validação =====
     if (!inputText) { alert("Digite o nome do produto!"); return; }
     if (!datauser) { alert("Escolha uma data!"); return; }
@@ -60,7 +62,7 @@ btn.addEventListener("click", (e) => {
     const descriptionItem = document.createElement('p');
     descriptionItem.textContent = descriptionUser || "Sem descrição adicionada.";
     descriptionItem.classList.add("description-of-task");
-    descriptionItem.style.display = "none";
+    
 
 
     
@@ -121,7 +123,7 @@ status.src = originalStatusSrc;
     const btnDescription = newItem.querySelector(".btn-salvar-descricao");
     btnDescription.addEventListener("click", (e) => {
         e.preventDefault();
-        descriptionItem.style.display = descriptionItem.style.display === "none" ? "block" : "none";
+        descriptionItem.classList.toggle("active");
     });
 
     console.log(Tarefa);
