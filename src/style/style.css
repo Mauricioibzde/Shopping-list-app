@@ -36,7 +36,7 @@ body {
 
     /* === Content Colors === */
     --content-primary: #080B12;
-    --content-secondary: #374151;
+    --content-secondary: #124d20;
     --content-tertiary: #27391C;
     --always-white: #FFFFFF;
 
@@ -75,7 +75,7 @@ body {
 }
 
 input , button, textarea {
-     background-color: var(--background-secondary);
+   
        color: var(--content-tertiary);
 } 
 
@@ -139,6 +139,7 @@ main {
     border: 1px solid var(--border-primary);
     border-radius: 0.5rem;
     width: 100%;
+      box-shadow: 0 0 0 2px var(--content-secondary); /* efeito visual opcional */
    
     
   
@@ -308,10 +309,17 @@ textarea {
   box-sizing: border-box;
   padding: 1rem;
   color: var(--content-tertiary);
-  background-color: var(--background-secondary);
+
   border-radius: 1rem;
   font-family: var(--font-family);
+  outline: none; 
+   box-shadow: 0 0 0 2px var(--content-secondary); /* efeito visual opcional */
+      
         
+}
+
+textarea:focus {
+      box-shadow: 0 0 0 2px var(--color-brand); /* efeito visual opcional */
 }
         
 
