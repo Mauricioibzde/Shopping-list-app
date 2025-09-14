@@ -8,6 +8,12 @@ body {
    background-color: var(--background-primary);
 }
 
+.logo {
+    & img {
+        width: 10rem;
+    }
+}
+
   
 
     p {
