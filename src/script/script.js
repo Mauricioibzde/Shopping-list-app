@@ -49,7 +49,9 @@ btn.addEventListener("click", (e) => {
         <button class="btn-delete">
             <img src="./src/icons/delete-svgrepo.svg" alt="Deletar">
         </button>
-        <button class="btn-salvar-descricao"><img src="./src/icons/chat-svgrepo-com.svg" alt=""></button>
+        <button class="btn-salvar-descricao">
+        <img src="./src/icons/chat-svgrepo-com.svg" alt="">
+        </button>
     `;
 
     // Cria a descrição
