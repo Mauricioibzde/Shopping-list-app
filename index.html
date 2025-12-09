@@ -7,50 +7,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quicklist</title>
-  <link rel="stylesheet" href="src/style/style.css">
+<link rel="stylesheet" href="src/style/index.css">
 </head>
 <body>
-  <main>
-    <div class="logo">
-      <img src="./src/img/logo.quick.list.png" alt="Logo">
-    </div>
+  <main class="container"> 
+    <header>
+      <div class="logo">
+        <img src="./src/img/logo.svg" alt="Logo">
+      </div>
 
-    <div class="btn-back">
-      <button class="btn-back"><- Back</button>
-    </div>
+      <div class="btn-back">
+        <button class="btn-back"><- Back</button>
+      </div>
 
-    <div class="title-of-the-aplication">
-      <h1>Task Scheduler</h1>
-    </div>
+      <div class="title-of-the-application">
+        <h1>Weekly Shopping List</h1>
+      </div>
+    </header>
 
     <form class="hero-form" action="">
-      <div class="tarefas-container">
-        <button id="btn-show-task" type="button">View Tasks</button>
-        <button id="btn-ver-excluidas" type="button">Deleted Tasks</button>
-      </div>
-
       <div class="menu-app">
-        <input id="user-task-input-to-insert-task" type="text" placeholder="Add a new item!">
-        <input type="date" id="user-date">
-        <button id="btn-add" type="button">Add</button>
-      </div>
-
-      <div class="description">
-        <textarea placeholder="Description" id="user-description"></textarea>
-      </div>
-
-      <div class="adding-or-not">
-        <p id="task-menssagem">Add your first task!</p>
+        <input class="user-task-input" type="text" placeholder="Add a new item!">
+        <button id="btn-add" type="button">Add Item</button>
       </div>
 
       <div class="list-body">
         <ul id="list">
-          <p id="d"></p>
+          <!--
+          <li>
+            <input class="checkbox" type="checkbox">
+            <span class="task-name">Sample Task</span>
+            <button class="delete-btn"><img src="./src/icons/trash.svg" alt=""></button>
+          </li>
+          -->
         </ul>
       </div>
 
-      <div class="descriptionUser">
+      <div class="error">
+        <!--
+        <li>
+          <span><img src="./src/icons/Icon error.svg" alt=""></span>
+          <span class="task-name">The item was removed from the list</span>
+          <span><img src="./src/icons/Icon x.svg" alt=""></span>
+        </li>
+        -->
       </div>
+
     </form>
   </main>
 

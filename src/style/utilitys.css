@@ -1,0 +1,53 @@
+:root {
+    /* === Background Colors === */
+    --background-primary: #F4F5FB;
+    --background-secondary: #c5c5c5;
+
+    /* === Brand & Status Colors === */
+    --color-brand: #1F7D53;
+    --color-brand-hover: #A52C6B;
+    --color-danger: #A52C6B;
+    --color-error: #C93847;
+     --color-checkbox: #019052;
+
+    --content-tertiary: #FFFFFF;
+
+    /* === Content Colors === */
+    --content-primary: #080B12;
+    --content-secondary: #374151;
+    --always-white: #FFFFFF;
+
+    /* === Border Colors === */
+    --border-primary: #D1D5DB;
+    --border-hover: #B9C2D0;
+
+--font-title: 700 1.5rem/1.333 "Inter", sans-serif;       /* 24px / 32px */
+  --font-label: 600 1rem/1.25 "Inter", sans-serif;          /* 16px / 20px */
+  --font-paragraph: 500 1rem/1.25 "Inter", sans-serif;      /* 16px / 20px */
+  --font-link: 500 0.875rem/1.143 "Inter", sans-serif;      /* 14px / 16px */
+}
+
+.error {
+    & li {
+    padding: 12px 8px;
+    border-radius: 12px;
+    display: grid;
+    align-items: center;
+    background-color: var(--color-error);
+    grid-template-columns: auto 1fr auto;
+    padding-inline: 1rem;
+        
+        
+   
+        & span:nth-child(2) {
+            justify-self: left;
+             align-self: center;
+            color: var(--always-white);
+        }
+          & span:nth-child(3) {
+            justify-self: right;
+            align-self: center;
+            color: var(--always-white);
+        }
+    }
+}
