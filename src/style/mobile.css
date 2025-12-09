@@ -2,4 +2,9 @@
 .container {
     padding-inline: 1rem;
   }
+
+  .menu-app {
+    display:flex;
+    flex-direction: column;
+  }
 }

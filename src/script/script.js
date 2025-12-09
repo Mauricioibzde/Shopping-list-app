@@ -1,84 +1,26 @@
-// Default items that will appear only on first load
-const defaultTasks = [
+// Default items (only on first load)
+const DEFAULT_TASKS = [
   { text: "Milk", completed: false },
   { text: "Bread", completed: false },
   { text: "Eggs", completed: false }
 ];
 
-// Selecting elements
+// DOM elements
 const form = document.querySelector(".hero-form");
 const input = document.querySelector(".user-task-input");
 const list = document.getElementById("list");
 const btnAdd = document.getElementById("btn-add");
 const errorDiv = document.querySelector(".error");
 
-function getTasks() {
-  return JSON.parse(localStorage.getItem("tasks")) || [];
-}
+/* -------------------------
+   Helpers: LocalStorage
+--------------------------*/
+const getTasks = () => JSON.parse(localStorage.getItem("tasks")) || [];
+const saveTasks = (tasks) => localStorage.setItem("tasks", JSON.stringify(tasks));
 
-function saveTasks(tasks) {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-// Create task item in DOM
-function createTask(taskText, isCompleted = false) {
-  const li = document.createElement("li");
-
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.classList.add("checkbox");
-  checkbox.checked = isCompleted;
-
-  const span = document.createElement("span");
-  span.classList.add("task-name");
-  span.textContent = taskText;
-
-  const deleteBtn = document.createElement("button");
-  deleteBtn.classList.add("delete-btn");
-
-  const imgTrash = document.createElement("img");
-  imgTrash.src = "./src/icons/trash.svg";
-  imgTrash.alt = "Delete";
-
-  deleteBtn.appendChild(imgTrash);
-
-  if (isCompleted) {
-    span.style.textDecoration = "line-through";
-    span.style.opacity = "0.6";
-  }
-
-  checkbox.addEventListener("change", () => {
-    const tasks = getTasks();
-    const task = tasks.find((t) => t.text === taskText);
-
-    if (checkbox.checked) {
-      span.style.textDecoration = "line-through";
-      span.style.opacity = "0.6";
-      task.completed = true;
-    } else {
-      span.style.textDecoration = "none";
-      span.style.opacity = "1";
-      task.completed = false;
-    }
-
-    saveTasks(tasks);
-  });
-
-  deleteBtn.addEventListener("click", () => {
-    const tasks = getTasks().filter((t) => t.text !== taskText);
-    saveTasks(tasks);
-
-    li.remove();
-    showError("Item removed successfully!");
-  });
-
-  li.appendChild(checkbox);
-  li.appendChild(span);
-  li.appendChild(deleteBtn);
-  list.appendChild(li);
-}
-
-// Error message
+/* -------------------------
+   UI Feedback
+--------------------------*/
 function showError(message) {
   errorDiv.innerHTML = `
     <li>
@@ -88,42 +30,105 @@ function showError(message) {
     </li>
   `;
 
-  setTimeout(() => {
-    errorDiv.innerHTML = "";
-  }, 3000);
+  setTimeout(() => (errorDiv.innerHTML = ""), 3000);
 }
 
-// Add new item
-btnAdd.addEventListener("click", () => {
-  const taskText = input.value.trim();
+/* -------------------------
+   Task DOM Element
+--------------------------*/
+function createTaskElement(task) {
+  const li = document.createElement("li");
 
-  if (taskText === "") {
+  // Checkbox
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.classList.add("checkbox");
+  checkbox.checked = task.completed;
+
+  // Text
+  const span = document.createElement("span");
+  span.classList.add("task-name");
+  span.textContent = task.text;
+
+  // Delete button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.innerHTML = `<img src="./src/icons/trash.svg" alt="Delete">`;
+
+  // Apply completed style
+  applyCompletedStyle(span, task.completed);
+
+  // Events
+  checkbox.addEventListener("change", () => toggleTask(task.text, span, checkbox.checked));
+  deleteBtn.addEventListener("click", () => removeTask(task.text, li));
+
+  // Add to DOM
+  li.append(checkbox, span, deleteBtn);
+  list.appendChild(li);
+}
+
+/* -------------------------
+   Logic
+--------------------------*/
+function applyCompletedStyle(element, isCompleted) {
+  element.style.textDecoration = isCompleted ? "line-through" : "none";
+  element.style.opacity = isCompleted ? "0.6" : "1";
+}
+
+function toggleTask(text, span, completed) {
+  const tasks = getTasks();
+  const task = tasks.find((t) => t.text === text);
+  if (!task) return;
+
+  task.completed = completed;
+  saveTasks(tasks);
+  applyCompletedStyle(span, completed);
+}
+
+function removeTask(text, li) {
+  const tasks = getTasks().filter((t) => t.text !== text);
+  saveTasks(tasks);
+
+  li.remove();
+  showError("Item removed successfully!");
+}
+
+function addNewTask(taskText) {
+  if (!taskText) {
     showError("The field cannot be empty!");
     return;
   }
 
   const tasks = getTasks();
-  tasks.push({ text: taskText, completed: false });
+  const newTask = { text: taskText, completed: false };
+
+  tasks.push(newTask);
   saveTasks(tasks);
 
-  createTask(taskText);
+  createTaskElement(newTask);
   input.value = "";
-});
+}
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  btnAdd.click();
-});
-
-// Load tasks on start
-window.addEventListener("DOMContentLoaded", () => {
+/* -------------------------
+   Initialization
+--------------------------*/
+function loadTasks() {
   let tasks = getTasks();
 
-  // If it's the first time, load default tasks
   if (tasks.length === 0) {
-    saveTasks(defaultTasks);
-    tasks = defaultTasks;
+    saveTasks(DEFAULT_TASKS);
+    tasks = DEFAULT_TASKS;
   }
 
-  tasks.forEach((task) => createTask(task.text, task.completed));
+  tasks.forEach(createTaskElement);
+}
+
+/* -------------------------
+   Event Listeners
+--------------------------*/
+btnAdd.addEventListener("click", () => addNewTask(input.value.trim()));
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addNewTask(input.value.trim());
 });
+window.addEventListener("DOMContentLoaded", loadTasks);
