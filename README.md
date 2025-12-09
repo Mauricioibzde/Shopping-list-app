@@ -1,7 +1,10 @@
 🛒 Shopping List App
 A simple and efficient application to manage shopping lists, developed with a focus on usability and performance. The project was built using HTML, CSS, and JavaScript, and is available as a Progressive Web App (PWA), allowing installation on mobile devices and offline usage.
 
-![Logo do App](src/img/logo.png)
+## 📸 Screenshot
+
+![App Screenshot](Shopping%20List.jpeg)
+
 
 
 
