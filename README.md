@@ -24,7 +24,7 @@ To make daily shopping organization easier by providing a **lightweight** and **
 
 ## 🚀 Deployment
 
-The app is available at: ## https://mauricioibzde.github.io/Shopping-list-app/
+The app is available at: [Shopping List App](https://mauricioibzde.github.io/Shopping-list-app/)
 
 ---
 
@@ -42,17 +42,29 @@ The app is available at: ## https://mauricioibzde.github.io/Shopping-list-app/
 ## 📂 Project Structure
 
 ```
-ShoppingListApp/
-├── public/
-│   ├── index.html
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── styles.css
-│   │   ├── js/
-│   │   │   └── main.js
-│   │   └── img/
-│   │       └── screenshot.jpeg
-└── README.md
+Shopping-list-app/
+├── index.html
+├── manifest.json
+├── pwabuilder-sw.js
+├── README.md
+├── Shopping List.jpeg
+└── src/
+    ├── icons/
+    │   ├── Icon error.svg
+    │   ├── Icon x.svg
+    │   └── trash.svg
+    ├── img/
+    │   ├── logo.quick.list.png
+    │   └── logo.svg
+    ├── script/
+    │   └── script.js
+    └── style/
+        ├── utilitys.css
+        ├── form.css
+        ├── global.css
+        ├── header.css
+        ├── index.css
+        └── mobile.css
 ```
 
 ---
@@ -75,7 +87,7 @@ ShoppingListApp/
 
 ## 👨‍💻 Author
 
-**Mauricio farias da Silva** - [GitHub](#)
+**Mauricio Farias da Silva** - [GitHub](#)
 
 ---
 
@@ -89,5 +101,3 @@ Feel free to fork the repository, create a branch, and submit a pull request.
 ## 📄 License
 
 MIT License - Open Source
-
-
