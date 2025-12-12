@@ -75,7 +75,7 @@ ShoppingListApp/
 
 ## 👨‍💻 Author
 
-**Your Name** - [GitHub](#)
+**Mauricio farias da Silva** - [GitHub](#)
 
 ---
 
