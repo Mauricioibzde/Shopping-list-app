@@ -24,7 +24,7 @@ To make daily shopping organization easier by providing a **lightweight** and **
 
 ## 🚀 Deployment
 
-The app is available at: [Shopping List App](#)
+The app is available at: ## https://mauricioibzde.github.io/Shopping-list-app/
 
 ---
 
@@ -89,3 +89,5 @@ Feel free to fork the repository, create a branch, and submit a pull request.
 ## 📄 License
 
 MIT License - Open Source
+
+
